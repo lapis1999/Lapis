@@ -1,4 +1,4 @@
-const PORT = process.env.PORT || 4200
+/*//const PORT = process.env.PORT || 4200
 const express = require('express');
 const app = express();
 //const fs = require("fs"); //read file
@@ -37,8 +37,8 @@ const pool = mysql.createPool({
 function getConnection(){ 
     return pool
 }
-
+/*
 app.listen(PORT, function () {
     console.log("server is listening on :" + PORT)
-});
+});*/
 
