@@ -1,18 +1,13 @@
-var PORT = process.env.PORT || 4200
+const PORT = process.env.PORT || 4200
 const express = require('express');
 const app = express();
 const fs = require("fs"); //read file
 const mysql = require('mysql')
+const router = express.Router()
 
-app.get('/costTypeID', (req, res) => {
+router.get('/costTypeID', (req, res) => {
     //console.log("costTypeID: " + req.params.id)
-
-    const connect = mysql.createConnection({
-        host: 'us-cdbr-iron-east-01.cleardb.net',
-        user: 'b30ea52d3aa952',
-        password: '918a5c13',
-        database: 'heroku_1c39a65d43a5546'
-    })
+    const connect = getConnection()
     const queryString = "SELECT * FROM coststype"
     connect.query(queryString,(err, rows, fields) => {
         if(err){
@@ -30,6 +25,18 @@ app.get('/costTypeID', (req, res) => {
     })
     //res.end()
 });
+
+const pool = mysql.createPool({
+    connectionLimit: 10,
+    host: 'us-cdbr-iron-east-01.cleardb.net',
+    user: 'b30ea52d3aa952',
+    password: '918a5c13',
+    database: 'heroku_1c39a65d43a5546'
+})
+
+function getConnection(){ 
+    return pool
+}
 
 
 app.listen(PORT, function () {
