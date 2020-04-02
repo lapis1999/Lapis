@@ -1,11 +1,11 @@
 const PORT = process.env.PORT || 4200
 const express = require('express');
 const app = express();
-const fs = require("fs"); //read file
+//const fs = require("fs"); //read file
 const mysql = require('mysql')
 const router = express.Router()
 
-app.get('/costTypeID', (req, res) => {
+router.get('/costTypeID', (req, res) => {
     //console.log("costTypeID: " + req.params.id)
     const connect = getConnection()
     const queryString = "SELECT * FROM coststype"
@@ -38,7 +38,7 @@ function getConnection(){
     return pool
 }
 
-
 app.listen(PORT, function () {
     console.log("server is listening on :" + PORT)
 });
+

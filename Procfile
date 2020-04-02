@@ -1,1 +1,1 @@
-web: node costapi.js
+web: node server.js
