@@ -5,7 +5,7 @@ const fs = require("fs"); //read file
 const mysql = require('mysql')
 const router = express.Router()
 
-router.get('/costTypeID', (req, res) => {
+app.get('/costTypeID', (req, res) => {
     //console.log("costTypeID: " + req.params.id)
     const connect = getConnection()
     const queryString = "SELECT * FROM coststype"
