@@ -1,3 +1,4 @@
+var PORT = process.env.PORT || 4200
 const express = require('express');
 const app = express();
 const fs = require("fs"); //read file
@@ -31,8 +32,6 @@ app.get('/costTypeID', (req, res) => {
 });
 
 
-const server = app.listen(4200, function () {
-    const host = server.address().address
-    const port = server.address().port
-    console.log("server is listening on 4200")
+app.listen(PORT, function () {
+    console.log("server is listening on :" + PORT)
 });
