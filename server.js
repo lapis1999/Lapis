@@ -7,8 +7,8 @@ const app = express();
 // Serve only the static files form the angularapp directory
 app.use(express.static(__dirname + '/angularapp'));
 
-const router = require('./costapi.js')
-app.use(router)
+/*const router = require('./costapi.js')
+app.use(router)*/
 
 
 
